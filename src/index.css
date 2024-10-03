@@ -19,6 +19,14 @@ body {
   min-height: 100vh;
 }
 
+.item-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -36,6 +44,11 @@ body {
   &:hover {
     cursor: pointer;
   }
+}
+
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .cart-button {
