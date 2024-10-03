@@ -6,16 +6,16 @@ function NavBar () {
     <div className="nav-bar">
       <div className="nav-tabs">
         <div className="home-tab">
-          <Link to='/'>Home</Link>
+          <Link to='/'>home</Link>
         </div>
 
         <div className="shop-tab">
-          <Link to='shop'>SHOP</Link>
+          <Link to='shop'>shop</Link>
         </div>
       </div>
 
     <div className="cart-button">
-      <Link to='cart'>CART</Link>
+      <Link to='cart'>cart</Link>
     </div>
 
     </div>

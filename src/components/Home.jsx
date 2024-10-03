@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom'
 function Home () {
   return  (
     <div className="home-page">
-      <h1>WE BOTH KNOW</h1>
-      <h1>YOU WANT CHEESE</h1>
+      <h1>we both know youre hungry.</h1>
       <Link to='shop'>
-        <button className='shop-button'>SHOP</button>
+        <button className='shop-button'>shop</button>
       </Link>
     </div>
   )
