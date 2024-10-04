@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 //  external dependencies
 import { Link } from 'react-router-dom'
 
-function NavBar () {
+function NavBar ({ itemCount }) {
   return (
     <div className="nav-bar">
       <div className="nav-tabs">
@@ -15,7 +16,7 @@ function NavBar () {
       </div>
 
     <div className="cart-button">
-      <Link to='cart'>cart</Link>
+      <Link to='cart'>cart({itemCount})</Link>
     </div>
 
     </div>

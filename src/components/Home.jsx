@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 function Home () {
   return  (
     <div className="home-page">
-      <h1>we both know youre hungry.</h1>
+      <h1>Fresh. Natural. Local.</h1>
+      <h2>Support your local grocer!</h2>
       <Link to='shop'>
         <button className='shop-button'>shop</button>
       </Link>
