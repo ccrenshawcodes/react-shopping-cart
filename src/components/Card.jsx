@@ -1,5 +1,10 @@
 /* eslint-disable react/prop-types */
-function Card ({ itemName = 'apple', itemPrice = 2.99, itemImage, inCart = false }) {
+function Card ({ 
+    itemName = 'apple', 
+    itemPrice = 2.99, 
+    itemImage, 
+    inCart = false, 
+  }) {
   return (
     <div className="item-card">
       <img src={itemImage} />
