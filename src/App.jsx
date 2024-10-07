@@ -1,16 +1,19 @@
 //  external dependencies
 import { Outlet } from 'react-router-dom'
+import { useState } from 'react'
 
 //  relative dependencies
 import NavBar from './components/NavBar'
 
 function App() {
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <>
       <NavBar
-        itemCount={3}
+        itemCount={cartItems.length}
       />
-      <Outlet />
+      <Outlet context={[cartItems, setCartItems]} />
     </>
   )
 }

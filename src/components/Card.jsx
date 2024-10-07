@@ -3,8 +3,15 @@ function Card ({
     itemName = 'apple', 
     itemPrice = 2.99, 
     itemImage, 
-    inCart = false, 
+    inCart = false,
+    itemId,
+    onAdd,
   }) {
+
+    function handleClick () {
+      onAdd(itemId, 1);
+    }
+
   return (
     <div className="item-card">
       <img src={itemImage} />
@@ -16,7 +23,7 @@ function Card ({
 
       <div className="card-actions">
         <input type="number" defaultValue={1} />
-        <button className='cart-add'>Add to cart</button>
+        <button className='cart-add' onClick={handleClick}>Add to cart</button>
         {inCart && 
           <button className='cart-remove'>Remove from cart</button>
         }
