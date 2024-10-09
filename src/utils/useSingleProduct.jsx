@@ -24,12 +24,24 @@ async function fetchMultiple (arr) {
   if (arr.length <= 0) {
     return;
   }
-  
+
+  const cleanData = dedupe(arr);
   const result = [];
-  for (let i = 0; i < arr.length; i++) {
-    const response = await fetch(`https://dummyjson.com/products/${arr[i]}`, {mode: "cors"});
+
+  for (let i = 0; i < cleanData.length; i++) {
+    const response = await fetch(`https://dummyjson.com/products/${cleanData[i]}`, {mode: "cors"});
     const data = await response.json();
     result.push(data);
+  }
+  return result;
+}
+
+function dedupe (arr) {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!result.includes(arr[i])) {
+      result.push(arr[i]);
+    }
   }
   return result;
 }

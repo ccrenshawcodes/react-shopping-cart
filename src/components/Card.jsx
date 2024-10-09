@@ -1,15 +1,20 @@
+//  external dependencies
+import { useState } from "react";
+//  relative dependencies
+
 /* eslint-disable react/prop-types */
 function Card ({ 
-    itemName = 'apple', 
-    itemPrice = 2.99, 
-    itemImage, 
+    itemName, 
+    itemPrice, 
+    itemImage,
     inCart = false,
     itemId,
     onAdd,
   }) {
+    const [itemQty, setItemQty] = useState(1);
 
     function handleClick () {
-      onAdd(itemId, 1);
+      onAdd(itemId, itemQty);
     }
 
   return (
@@ -22,8 +27,19 @@ function Card ({
       </div>
 
       <div className="card-actions">
-        <input type="number" defaultValue={1} />
-        <button className='cart-add' onClick={handleClick}>Add to cart</button>
+        <input 
+          type="number" 
+          defaultValue={1} 
+          onChange={e => setItemQty(e.target.value)}
+        />
+
+        <button 
+          className='cart-add' 
+          onClick={handleClick}
+        >
+          Add to cart
+        </button>
+
         {inCart && 
           <button className='cart-remove'>Remove from cart</button>
         }
