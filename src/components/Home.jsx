@@ -6,9 +6,11 @@ function Home () {
     <div className="home-page">
       <h1>Fresh. Natural. Local.</h1>
       <h2>Support your local grocer!</h2>
-      <Link to='shop'>
-        <button className='shop-button'>shop</button>
-      </Link>
+      <div className="home-cta">
+        <Link to='shop'>
+          <button className='shop-button'>shop</button>
+        </Link>
+      </div>
     </div>
   )
 }

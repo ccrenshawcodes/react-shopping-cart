@@ -18,7 +18,7 @@ function Card ({
 
       <div className="card-info">
         <span>{itemName}</span>
-        <span>{itemPrice}/ea</span>
+        <span>{itemPrice}</span>
       </div>
 
       <div className="card-actions">
