@@ -22,32 +22,31 @@ export default App
 
 /* 
   NEXT STEPS:
-    -Write tests
 
-    -Figure out how to display quantities on the cards in Cart
+    FUNCTIONALITY
+      -Figure out how to display quantities on the cards in Cart
+      -Remove from cart
+        -"remove from cart" button replaces "add to cart" when card is viewed on cart page
+        -"remove from cart" button mutates the items in cart data (outlet context)
+        -useSingleProduct probably needs the data in a dependency array
+      -useSingleProduct - better bad data handling within the fetch
+        (like what I have on the other fetch request)
 
-    -Figure out to add different quantities of items at once with the inputs
+    PROJECT REQUIREMENTS
+      -Write tests
 
-    -Add logic for "remove from cart" button to replace "add to cart" when
-      card is displayed in the Cart...
-      Plus an event listener for that button to mutate the Outlet context/actual items in cart
-      Plus useSingleProduct needs the data as a dependency array so it re-runs when the data changes
-    
-    -Add pages:
-      -Loading element
-      -Error element (your API request had a problem. Reload page?)
-      -Checkout page (ie "sorry I don't have one of these :)")?
-    
-    -Add additional handling for bad data getting returned in useSingleProduct, like what
-      I have in useAllProducts
+    NICE TO HAVE
+      -Add pages:
+        -Loading element
+        -Error element (your API request had a problem. Reload page?)
+        -Checkout page (ie "sorry I don't have one of these :)")?
+      -Put routes into their own file
 
-    -Put routes into their own file
-    
   BUGS:
-    -Navigating back to the Home page ("/" path) from the error element doesn't load the image??
-
+    -Navigating back to the Home page ("/" path) from the error element doesn't load the image
 
   NIT:
     -styles to indicate which tab you're on
     -animation to confirm when you've added something to your cart
+    -disable "checkout" button unless there's something in the cart
 */
