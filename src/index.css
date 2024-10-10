@@ -66,10 +66,6 @@ h2 {
   padding: 2em;
   border: 1px solid black;
   border-radius: 10px;
-  transition: all 0.5s ease;
-  &:hover {
-    box-shadow: 0px 0px 26px -3px #A0A59F;
-  }
 }
 
 .item-card > img {
@@ -82,10 +78,36 @@ h2 {
   justify-content: space-between;;
 }
 
+.card-info > *, .card-actions > * {
+  font-size: 1.5rem;
+}
+
+.card-actions > input {
+  flex: 1;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.card-actions > button {
+  flex: 3;
+  font-family: "Comfortaa", sans-serif;
+  background-color: rgb(85, 105, 88);
+  color: #fefbf0;
+  font-weight: bold;
+  font-size: large;
+  transition: all 0.5s ease;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 26px -3px #A0A59F;
+  }
+}
+
 .nav-bar {
   display: flex;
   justify-content: space-between;
-
+  position: sticky;
+  top: 0;
+  background-color: rgb(254, 251, 240);
 }
 
 .nav-bar > *, .nav-tabs {
