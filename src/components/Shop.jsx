@@ -34,6 +34,7 @@ function Shop () {
 
   return (
     <div className="shop-page">
+      <h2>Our Products</h2>
       <div className="products">
         {productsArray}
       </div>

@@ -9,7 +9,7 @@ export function useAllProducts () {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products/category/groceries?limit=9&skip=10&select=title,images,price,id", {mode: "cors"})
+    fetch("https://dummyjson.com/products/category/groceries?limit=20&skip=10&select=title,images,price,id", {mode: "cors"})
       .then((response) => {
         if (response.status >= 400) {
           throw new Error("server error");
