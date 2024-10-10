@@ -30,6 +30,9 @@ async function fetchMultiple (arr) {
 
   for (let i = 0; i < cleanData.length; i++) {
     const response = await fetch(`https://dummyjson.com/products/${cleanData[i]}`, {mode: "cors"});
+    if (response.status >= 400) {
+      throw new Error("server error");
+    }
     const data = await response.json();
     result.push(data);
   }

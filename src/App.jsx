@@ -29,16 +29,12 @@ export default App
         -"remove from cart" button replaces "add to cart" when card is viewed on cart page
         -"remove from cart" button mutates the items in cart data (outlet context)
         -useSingleProduct probably needs the data in a dependency array
-      -useSingleProduct - better bad data handling within the fetch
-        (like what I have on the other fetch request)
 
     PROJECT REQUIREMENTS
       -Write tests
 
     NICE TO HAVE
       -Add pages:
-        -Loading element
-        -Error element (your API request had a problem. Reload page?)
         -Checkout page (ie "sorry I don't have one of these :)")?
       -Put routes into their own file
 
@@ -49,4 +45,5 @@ export default App
     -styles to indicate which tab you're on
     -animation to confirm when you've added something to your cart
     -disable "checkout" button unless there's something in the cart
+    -dummyJSON link in README to open in a new tab
 */
