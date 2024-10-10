@@ -13,7 +13,7 @@ function Home () {
         </Link>
       </div>
 
-      <a href="https://github.com/ccrenshawcodes/react-shopping-cart">
+      <a target="_blank" href="https://github.com/ccrenshawcodes/react-shopping-cart">
         <button>See the code on GitHub</button>
       </a>
     </div>
