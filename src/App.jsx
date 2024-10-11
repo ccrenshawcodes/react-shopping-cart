@@ -24,7 +24,6 @@ export default App
   NEXT STEPS:
 
     FUNCTIONALITY
-      -Figure out how to display quantities on the cards in Cart
       -Remove from cart
         -"remove from cart" button replaces "add to cart" when card is viewed on cart page
         -"remove from cart" button mutates the items in cart data (outlet context)
@@ -33,10 +32,11 @@ export default App
     PROJECT REQUIREMENTS
       -Write tests
 
-    NICE TO HAVE
+    NICE TO HAVE/BETTERMENTS
       -Add pages:
         -Checkout page (ie "sorry I don't have one of these :)")?
       -Put routes into their own file
+      -Store store items in local storage
 
   BUGS:
     -Navigating back to the Home page ("/" path) from the error element doesn't load the image

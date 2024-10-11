@@ -16,7 +16,7 @@ function Cart () {
         itemName={item.title}
         itemPrice={item.price}
         itemImage={item.images[0]}
-        inCart={false}
+        inCart={true}
         key={item.id}
         itemId={item.id}
       />))
