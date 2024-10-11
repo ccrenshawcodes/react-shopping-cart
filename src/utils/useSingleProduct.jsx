@@ -15,7 +15,7 @@ export function useSingleProduct () {
     .then((response) => setCartData(response))
     .catch((error) => setError(error))
     .finally(() => setLoading(false));
-  });
+  }, [cartItems]);
 
   return { cartData, error, loading };
 }

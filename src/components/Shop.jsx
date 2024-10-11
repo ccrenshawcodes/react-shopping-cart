@@ -29,7 +29,7 @@ function Shop () {
       inCart={false}
       key={item.id}
       itemId={item.id}
-      onAdd={handleAddToCart}
+      onClick={handleAddToCart}
     />
   ))
 

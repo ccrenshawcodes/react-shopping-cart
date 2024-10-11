@@ -23,12 +23,6 @@ export default App
 /* 
   NEXT STEPS:
 
-    FUNCTIONALITY
-      -Remove from cart
-        -"remove from cart" button replaces "add to cart" when card is viewed on cart page
-        -"remove from cart" button mutates the items in cart data (outlet context)
-        -useSingleProduct probably needs the data in a dependency array
-
     PROJECT REQUIREMENTS
       -Write tests
 
@@ -40,6 +34,7 @@ export default App
 
   BUGS:
     -Navigating back to the Home page ("/" path) from the error element doesn't load the image
+    -Prevent negative numbers in the inputs
 
   NIT:
     -styles to indicate which tab you're on

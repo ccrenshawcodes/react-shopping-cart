@@ -10,13 +10,17 @@ function Card ({
     itemImage,
     inCart = false,
     itemId,
-    onAdd,
+    onClick,
   }) {
     const [itemQty, setItemQty] = useState(1);
     const [cartItems] = useOutletContext();
 
     function handleClick () {
-      onAdd(itemId, itemQty);
+      if (inCart) {
+        onClick(itemId);
+      } else {
+        onClick(itemId, itemQty);
+      }
     }
 
     function getNumOfItems () {
@@ -46,8 +50,14 @@ function Card ({
         />
 
         {inCart 
-          ? <button className='cart-remove'>Remove from cart</button>
-          : (
+          ? (
+          <button 
+            className='cart-remove'
+            onClick={handleClick}
+          >
+            Remove from cart
+          </button>
+          ) : (
             <button 
               className='cart-add' 
               onClick={handleClick}
