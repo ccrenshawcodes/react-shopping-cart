@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 //  external dependencies
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types';
 
 function NavBar ({ itemCount }) {
   return (
@@ -24,3 +24,7 @@ function NavBar ({ itemCount }) {
 }
 
 export default NavBar
+
+NavBar.propTypes = {
+  itemCount: PropTypes.number,
+}

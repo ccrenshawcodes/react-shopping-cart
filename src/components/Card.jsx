@@ -1,9 +1,10 @@
 //  external dependencies
 import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
+import PropTypes from 'prop-types';
+
 //  relative dependencies
 
-/* eslint-disable react/prop-types */
 function Card ({ 
     itemName, 
     itemPrice, 
@@ -72,3 +73,12 @@ function Card ({
 }
 
 export default Card
+
+Card.propTypes = {
+  itemName: PropTypes.string,
+  itemPrice: PropTypes.number,
+  itemImage: PropTypes.string,
+  inCart: PropTypes.bool,
+  itemId: PropTypes.number,
+  onClick: PropTypes.func
+}
