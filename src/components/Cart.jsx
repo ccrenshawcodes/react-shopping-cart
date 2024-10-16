@@ -1,5 +1,5 @@
 //  external dependencies
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext, Link } from 'react-router-dom';
 //  relative dependencies
 import Card from './Card'
 import { useSingleProduct } from '../utils/useSingleProduct'
@@ -35,9 +35,10 @@ function Cart () {
     <div className="cart-page">
       <div className="cart-header">
         <h2>Your Cart</h2>
-        <a target='_blank' href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley">
-          <button>Checkout</button>
-        </a>
+
+      <Link to='checkout'>
+        <button>Checkout</button>
+      </Link>
 
       </div>
       <div className="cart-items">

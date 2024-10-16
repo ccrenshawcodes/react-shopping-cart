@@ -6,6 +6,7 @@ import Shop from './components/Shop.jsx'
 import Cart from './components/Cart.jsx'
 import Home from './components/Home.jsx'
 import ErrorPage from './components/ErrorPage.jsx'
+import Checkout from './components/Checkout.jsx'
 
 const routes = [
   {
@@ -16,6 +17,7 @@ const routes = [
       {index: true, element: <Home />},
       {path: 'shop', element: <Shop />,},
       {path: 'cart', element: <Cart />,},
+      {path: 'cart/checkout', element: <Checkout />},
     ],
   },
 ];
