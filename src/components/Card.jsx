@@ -44,7 +44,8 @@ function Card ({
 
       <div className="card-actions">
         <input 
-          type="number" 
+          type="number"
+          min={1}
           defaultValue={getNumOfItems()} 
           onChange={e => setItemQty(e.target.value)}
           disabled={inCart ? true : false}

@@ -27,14 +27,11 @@ export default App
       -Write tests
 
     NICE TO HAVE/BETTERMENTS
-      -Add pages:
-        -Checkout page (ie "sorry I don't have one of these :)")?
-      -Put routes into their own file
       -Store store items in local storage
 
   BUGS:
     -Navigating back to the Home page ("/" path) from the error element doesn't load the image
-    -Prevent negative numbers in the inputs
+    -Accessing the Home page on netifly doesn't load the image either :( 
 
   NIT:
     -styles to indicate which tab you're on
