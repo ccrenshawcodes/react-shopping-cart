@@ -181,13 +181,13 @@ h2 {
 }
 
 .home-cta {
-  background-image: url(src/assets/produce-longest.jpg);
+  background-image: url(https://www.islandvacationproperties.com/wp-content/uploads/2020/11/Website-Header-Blog-1920x700-19.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 20em;
+  height: 30em;
   width: 100vw;
   margin: 1em 0 3em 0;
 }
@@ -205,6 +205,7 @@ h2 {
 
 .home-page > a > button {
   padding: 1em;
+  margin-bottom: 1em;
   font-family: "Comfortaa", sans-serif;
   background-color: rgb(85, 105, 88);
   color: #fefbf0;
