@@ -4,7 +4,7 @@ import { useOutletContext } from "react-router-dom";
 
 //  relative dependencies
 
-export function useSingleProduct () {
+export function useSingleProduct() {
   const [cartData, setCartData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -12,15 +12,15 @@ export function useSingleProduct () {
 
   useEffect(() => {
     fetchMultiple(cartItems)
-    .then((response) => setCartData(response))
-    .catch((error) => setError(error))
-    .finally(() => setLoading(false));
+      .then((response) => setCartData(response))
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
   }, [cartItems]);
 
   return { cartData, error, loading };
 }
 
-async function fetchMultiple (arr) {
+async function fetchMultiple(arr) {
   if (arr.length <= 0) {
     return;
   }
@@ -29,7 +29,10 @@ async function fetchMultiple (arr) {
   const result = [];
 
   for (let i = 0; i < cleanData.length; i++) {
-    const response = await fetch(`https://dummyjson.com/products/${cleanData[i]}`, {mode: "cors"});
+    const response = await fetch(
+      `https://dummyjson.com/products/${cleanData[i]}`,
+      { mode: "cors" },
+    );
     if (response.status >= 400) {
       throw new Error("server error");
     }
@@ -39,7 +42,7 @@ async function fetchMultiple (arr) {
   return result;
 }
 
-function dedupe (arr) {
+function dedupe(arr) {
   const result = [];
   for (let i = 0; i < arr.length; i++) {
     if (!result.includes(arr[i])) {
