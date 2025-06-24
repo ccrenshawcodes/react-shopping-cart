@@ -17,23 +17,3 @@ function App() {
 }
 
 export default App;
-
-/* 
-  NEXT STEPS:
-
-    PROJECT REQUIREMENTS
-      -Write tests
-
-    NICE TO HAVE/BETTERMENTS
-      -Store store items in local storage
-
-  BUGS:
-    -Navigating back to the Home page ("/" path) from the error element doesn't load the image
-    -Accessing the Home page on netifly doesn't load the image either :( 
-
-  NIT:
-    -styles to indicate which tab you're on
-    -animation to confirm when you've added something to your cart
-    -disable "checkout" button unless there's something in the cart
-    -dummyJSON link in README to open in a new tab
-*/

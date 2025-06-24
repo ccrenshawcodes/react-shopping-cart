@@ -122,9 +122,6 @@ h2 {
   display: flex;
   justify-content: space-around;
   flex: 17;
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .products {
