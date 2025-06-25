@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Londrina+Sketch&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Londrina+Sketch&display=swap");
 
 :root {
   font-family: "Comfortaa", sans-serif;
@@ -72,13 +72,15 @@ h2 {
   height: 20em;
 }
 
-.card-info, .card-actions {
+.card-info,
+.card-actions {
   display: flex;
   width: 70%;
-  justify-content: space-between;;
+  justify-content: space-between;
 }
 
-.card-info > *, .card-actions > * {
+.card-info > *,
+.card-actions > * {
   font-size: 1.5rem;
 }
 
@@ -98,7 +100,7 @@ h2 {
   transition: all 0.5s ease;
   &:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 26px -3px #A0A59F;
+    box-shadow: 0px 0px 26px -3px #a0a59f;
   }
 }
 
@@ -110,18 +112,16 @@ h2 {
   background-color: rgb(254, 251, 240);
 }
 
-.nav-bar > *, .nav-tabs {
+.nav-bar > *,
+.nav-tabs {
   border: 1px solid black;
   padding: 2em;
 }
 
 .nav-tabs {
   display: flex;
-  justify-content:space-around;
+  justify-content: space-around;
   flex: 17;
-  &:hover {
-    cursor: pointer;
-  }
 }
 
 .products {
@@ -146,6 +146,7 @@ h2 {
   padding: 1em 3em;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .cart-header > a > button {
@@ -158,7 +159,7 @@ h2 {
   transition: all 0.5s ease;
   &:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 26px -3px #A0A59F;
+    box-shadow: 0px 0px 26px -3px #a0a59f;
   }
 }
 
@@ -214,7 +215,7 @@ h2 {
   transition: all 0.5s ease;
   &:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 26px -3px #A0A59F;
+    box-shadow: 0px 0px 26px -3px #a0a59f;
   }
 }
 
@@ -235,7 +236,7 @@ h2 {
   transition: all 0.5s ease;
   &:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 26px -3px #A0A59F;
+    box-shadow: 0px 0px 26px -3px #a0a59f;
   }
 }
 
@@ -256,6 +257,6 @@ h2 {
   transition: all 0.5s ease;
   &:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 26px -3px #A0A59F;
+    box-shadow: 0px 0px 26px -3px #a0a59f;
   }
 }
