@@ -7,7 +7,7 @@ import Card from "./Card";
 
 function Shop() {
   const { storeData, error, loading } = useAllProducts();
-  const [,setCartItems] = useOutletContext();
+  const [, setCartItems] = useOutletContext();
 
   const handleAddToCart = (id, quantity = 1) => {
     let counter = quantity;
