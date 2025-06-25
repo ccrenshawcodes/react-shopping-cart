@@ -11,26 +11,18 @@ function Card({
   itemImage,
   inCart = false,
   itemId,
-  onClick,
 }) {
   const [itemQty, setItemQty] = useState(1);
-  const [cartItems] = useOutletContext();
+  const [cartItems, setCartItems] = useOutletContext();
 
-  function handleClick() {
-    if (inCart) {
-      onClick(itemId);
-    } else {
-      onClick(itemId, itemQty);
-    }
+  function handleAddToCart() {
+    //TODO
+    return;
   }
 
-  function getNumOfItems() {
-    if (inCart) {
-      const howManyItems = cartItems.filter((item) => item === itemId);
-      return howManyItems.length;
-    } else {
-      return 1;
-    }
+  function handleRemoveFromCart() {
+    //TODO
+    return;
   }
 
   return (
@@ -46,17 +38,17 @@ function Card({
         <input
           type="number"
           min={1}
-          defaultValue={getNumOfItems()}
+          defaultValue={1}
           onChange={(e) => setItemQty(e.target.value)}
           disabled={inCart ? true : false}
         />
 
         {inCart ? (
-          <button className="cart-remove" onClick={handleClick}>
+          <button className="cart-remove" onClick={handleRemoveFromCart}>
             Remove from cart
           </button>
         ) : (
-          <button className="cart-add" onClick={handleClick}>
+          <button className="cart-add" onClick={handleAddToCart}>
             Add to cart
           </button>
         )}
@@ -73,5 +65,4 @@ Card.propTypes = {
   itemImage: PropTypes.string,
   inCart: PropTypes.bool,
   itemId: PropTypes.number,
-  onClick: PropTypes.func,
 };
