@@ -7,8 +7,7 @@ import Card from "./Card";
 
 function Shop() {
   const { storeData, error, loading } = useAllProducts();
-  // eslint-disable-next-line no-unused-vars
-  const [cartItems, setCartItems] = useOutletContext();
+  const [,setCartItems] = useOutletContext();
 
   const handleAddToCart = (id, quantity = 1) => {
     let counter = quantity;
