@@ -5,42 +5,45 @@ import userEvent from "@testing-library/user-event";
 
 //  relative dependencies
 import Card from "../components/Card.jsx";
+import { FakeOutletContext } from "./_mocks/FakeOutletContext.jsx";
 
-//  setup props
-const itemName = "apples";
-const itemPrice = 1.4;
-const itemImage = "abc";
-const inCart = false;
-const itemId = 1;
-const onClick = vi.fn();
+const dummyData = [{
+  itemName: 'pickles',
+  itemPrice: 0.02,
+  itemImage: null,
+  itemId: 777,
+  itemQty: 3,
+}];
 
-describe.skip("Card element displays and behaves correctly", () => {
+describe("Card element displays and behaves correctly", () => {
   it("displays the right title on the Card", () => {
     render(
-      <Card
-        itemPrice={itemPrice}
-        itemName={itemName}
-        itemImage={itemImage}
-        inCart={inCart}
-        itemId={itemId}
-        onClick={onClick}
-      />,
+      <FakeOutletContext context={dummyData}>
+        <Card 
+          itemName={dummyData[0].itemName}
+          itemPrice={dummyData[0].itemPrice}
+          itemImage={dummyData[0].itemImage}
+          itemId={dummyData[0].itemId}
+          itemQty={dummyData[0].itemQty}
+        />
+      </FakeOutletContext>
     );
-    expect(screen.getByText("apples"));
+    expect(screen.getByText("pickles"));
   });
 
-  it('performs onClick function when "add to cart" is clicked', async () => {
+  it.skip('performs onClick function when "add to cart" is clicked', async () => {
     const user = userEvent.setup();
 
     render(
-      <Card
-        itemName={itemName}
-        itemPrice={itemPrice}
-        itemImage={itemImage}
-        inCart={inCart}
-        itemId={itemId}
-        onClick={onClick}
-      />,
+      <FakeOutletContext context={dummyData}>
+        <Card 
+          itemName={dummyData[0].itemName}
+          itemPrice={dummyData[0].itemPrice}
+          itemImage={dummyData[0].itemImage}
+          itemId={dummyData[0].itemId}
+          itemQty={dummyData[0].itemQty}
+        />
+      </FakeOutletContext>
     );
 
     const button = screen.getByText("Add to cart");
