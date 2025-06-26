@@ -5,12 +5,25 @@ import PropTypes from "prop-types";
 
 //  relative dependencies
 
-function Card({ itemName, itemPrice, itemImage, inCart = false, itemId }) {
-  const [itemQty, setItemQty] = useState(1);
+function Card({
+  itemName,
+  itemPrice,
+  itemImage,
+  inCart = false,
+  itemId,
+  itemQty,
+}) {
+  const [localItemQty, setLocalItemQty] = useState(1);
   const [cartItems, setCartItems] = useOutletContext();
 
   function handleAddToCart() {
-    const itemInfo = { itemName, itemPrice, itemImage, itemId, itemQty };
+    const itemInfo = {
+      itemName,
+      itemPrice,
+      itemImage,
+      itemId,
+      itemQty: Number(localItemQty),
+    };
     const existingItem = cartItems.filter((item) => item.itemId === itemId);
     const otherItems = cartItems.filter((item) => item.itemId !== itemId);
 
@@ -19,7 +32,7 @@ function Card({ itemName, itemPrice, itemImage, inCart = false, itemId }) {
     }
 
     function updateExistingItem() {
-      existingItem[0].itemQty += itemQty;
+      existingItem[0].itemQty += localItemQty;
 
       const newState =
         otherItems.length > 0 ? otherItems.concat(existingItem) : existingItem;
@@ -30,7 +43,7 @@ function Card({ itemName, itemPrice, itemImage, inCart = false, itemId }) {
   }
 
   function handleRemoveFromCart() {
-    const remainingItems = cartItems.filter(item => item.itemId !== itemId);
+    const remainingItems = cartItems.filter((item) => item.itemId !== itemId);
     setCartItems([...remainingItems]);
   }
 
@@ -47,8 +60,8 @@ function Card({ itemName, itemPrice, itemImage, inCart = false, itemId }) {
         <input
           type="number"
           min={1}
-          defaultValue={1}
-          onChange={(e) => setItemQty(e.target.value)}
+          defaultValue={itemQty}
+          onChange={(e) => setLocalItemQty(e.target.value)}
           disabled={inCart ? true : false}
         />
 
@@ -74,4 +87,5 @@ Card.propTypes = {
   itemImage: PropTypes.string,
   inCart: PropTypes.bool,
   itemId: PropTypes.number,
+  itemQty: PropTypes.number,
 };

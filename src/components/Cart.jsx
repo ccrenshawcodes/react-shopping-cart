@@ -4,22 +4,24 @@ import { useOutletContext, Link } from "react-router-dom";
 import Card from "./Card";
 
 function Cart() {
-  const [cartItems,] = useOutletContext();
+  const [cartItems] = useOutletContext();
 
-  const cartItemsArray = cartItems ? (
-    cartItems.map((item) => (
-      <Card
-        itemName={item.itemName}
-        itemPrice={item.itemPrice}
-        itemImage={item.itemImage}
-        inCart={true}
-        key={item.itemId}
-        itemId={item.itemId}
-      />
-    ))
-  ) : (
-    <p>You have not added anything to your cart yet.</p>
-  );
+  const cartItemsArray =
+    cartItems.length > 0 ? (
+      cartItems.map((item) => (
+        <Card
+          itemName={item.itemName}
+          itemPrice={item.itemPrice}
+          itemImage={item.itemImage}
+          inCart={true}
+          key={item.itemId}
+          itemId={item.itemId}
+          itemQty={item.itemQty}
+        />
+      ))
+    ) : (
+      <p>You have not added anything to your cart yet.</p>
+    );
 
   return (
     <div className="cart-page">

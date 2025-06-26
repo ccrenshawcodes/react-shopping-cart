@@ -18,6 +18,7 @@ function Shop() {
       inCart={false}
       key={item.id}
       itemId={item.id}
+      itemQty={1}
     />
   ));
 
