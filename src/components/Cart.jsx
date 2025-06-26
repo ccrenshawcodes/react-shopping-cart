@@ -5,18 +5,17 @@ import Card from "./Card";
 import { useSingleProduct } from "../utils/useSingleProduct";
 
 function Cart() {
-  const [cartItems, setCartItems] = useOutletContext();
+  const [cartItems,] = useOutletContext();
 
   const cartItemsArray = cartItems ? (
     cartItems.map((item) => (
       <Card
-        itemName={item.title}
-        itemPrice={item.price}
-        itemImage={item.images[0]}
+        itemName={item.itemName}
+        itemPrice={item.itemPrice}
+        itemImage={item.itemImage}
         inCart={true}
-        key={item.id}
-        itemId={item.id}
-        onClick={handleRemoveFromCart}
+        key={item.itemId}
+        itemId={item.itemId}
       />
     ))
   ) : (

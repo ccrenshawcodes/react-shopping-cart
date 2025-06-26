@@ -5,19 +5,28 @@ import PropTypes from "prop-types";
 
 //  relative dependencies
 
-function Card({
-  itemName,
-  itemPrice,
-  itemImage,
-  inCart = false,
-  itemId,
-}) {
+function Card({ itemName, itemPrice, itemImage, inCart = false, itemId }) {
   const [itemQty, setItemQty] = useState(1);
   const [cartItems, setCartItems] = useOutletContext();
 
   function handleAddToCart() {
-    //TODO
-    return;
+    const itemInfo = { itemName, itemPrice, itemImage, itemId, itemQty };
+    const existingItem = cartItems.filter((item) => item.itemId === itemId);
+    const otherItems = cartItems.filter((item) => item.itemId !== itemId);
+
+    function addNewItem() {
+      setCartItems((cartItems) => [...cartItems, itemInfo]);
+    }
+
+    function updateExistingItem() {
+      existingItem[0].itemQty += itemQty;
+
+      const newState =
+        otherItems.length > 0 ? otherItems.concat(existingItem) : existingItem;
+      setCartItems([...newState]);
+    }
+
+    existingItem.length > 0 ? updateExistingItem() : addNewItem();
   }
 
   function handleRemoveFromCart() {
