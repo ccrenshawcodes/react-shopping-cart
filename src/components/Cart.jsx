@@ -2,30 +2,31 @@
 import { useOutletContext, Link } from "react-router-dom";
 //  relative dependencies
 import Card from "./Card";
-import { useSingleProduct } from "../utils/useSingleProduct";
 
 function Cart() {
-  const { cartData, error, loading } = useSingleProduct();
-  const [cartItems, setCartItems] = useOutletContext();
+  const [cartItems] = useOutletContext();
+  const cartIsNotEmpty = cartItems.length > 0;
 
-  if (error) return <p>Oops, an error occurred fetching your items :( </p>;
-  if (loading) return <p>Loading your cart...</p>;
+  function calculatePrice() {
+    let total = 0;
+    if (cartIsNotEmpty) {
+      cartItems.map((item) => (total += item.itemPrice * item.itemQty));
+    }
+    return total.toFixed(2);
+  }
 
-  const handleRemoveFromCart = (id) => {
-    const itemsWithRemoved = cartItems.filter((item) => item !== id);
-    setCartItems([...itemsWithRemoved]);
-  };
+  const totalPrice = calculatePrice();
 
-  const cartItemsArray = cartData ? (
-    cartData.map((item) => (
+  const cartItemsArray = cartIsNotEmpty ? (
+    cartItems.map((item) => (
       <Card
-        itemName={item.title}
-        itemPrice={item.price}
-        itemImage={item.images[0]}
+        itemName={item.itemName}
+        itemPrice={item.itemPrice}
+        itemImage={item.itemImage}
         inCart={true}
-        key={item.id}
-        itemId={item.id}
-        onClick={handleRemoveFromCart}
+        key={item.itemId}
+        itemId={item.itemId}
+        itemQty={item.itemQty}
       />
     ))
   ) : (
@@ -38,7 +39,7 @@ function Cart() {
         <h2>Your Cart</h2>
 
         <Link to="checkout">
-          <button>Checkout</button>
+          <button>Checkout {cartIsNotEmpty && ` - ${totalPrice}`}</button>
         </Link>
       </div>
       <div className="cart-items">{cartItemsArray}</div>

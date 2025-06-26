@@ -11,26 +11,40 @@ function Card({
   itemImage,
   inCart = false,
   itemId,
-  onClick,
+  itemQty,
 }) {
-  const [itemQty, setItemQty] = useState(1);
-  const [cartItems] = useOutletContext();
+  const [localItemQty, setLocalItemQty] = useState(1);
+  const [cartItems, setCartItems] = useOutletContext();
 
-  function handleClick() {
-    if (inCart) {
-      onClick(itemId);
-    } else {
-      onClick(itemId, itemQty);
+  function handleAddToCart() {
+    const itemInfo = {
+      itemName,
+      itemPrice,
+      itemImage,
+      itemId,
+      itemQty: Number(localItemQty),
+    };
+    const existingItem = cartItems.filter((item) => item.itemId === itemId);
+    const otherItems = cartItems.filter((item) => item.itemId !== itemId);
+
+    function addNewItem() {
+      setCartItems((cartItems) => [...cartItems, itemInfo]);
     }
+
+    function updateExistingItem() {
+      existingItem[0].itemQty += localItemQty;
+
+      const newState =
+        otherItems.length > 0 ? otherItems.concat(existingItem) : existingItem;
+      setCartItems([...newState]);
+    }
+
+    existingItem.length > 0 ? updateExistingItem() : addNewItem();
   }
 
-  function getNumOfItems() {
-    if (inCart) {
-      const howManyItems = cartItems.filter((item) => item === itemId);
-      return howManyItems.length;
-    } else {
-      return 1;
-    }
+  function handleRemoveFromCart() {
+    const remainingItems = cartItems.filter((item) => item.itemId !== itemId);
+    setCartItems([...remainingItems]);
   }
 
   return (
@@ -46,17 +60,17 @@ function Card({
         <input
           type="number"
           min={1}
-          defaultValue={getNumOfItems()}
-          onChange={(e) => setItemQty(e.target.value)}
+          defaultValue={itemQty}
+          onChange={(e) => setLocalItemQty(e.target.value)}
           disabled={inCart ? true : false}
         />
 
         {inCart ? (
-          <button className="cart-remove" onClick={handleClick}>
+          <button className="cart-remove" onClick={handleRemoveFromCart}>
             Remove from cart
           </button>
         ) : (
-          <button className="cart-add" onClick={handleClick}>
+          <button className="cart-add" onClick={handleAddToCart}>
             Add to cart
           </button>
         )}
@@ -73,5 +87,5 @@ Card.propTypes = {
   itemImage: PropTypes.string,
   inCart: PropTypes.bool,
   itemId: PropTypes.number,
-  onClick: PropTypes.func,
+  itemQty: PropTypes.number,
 };

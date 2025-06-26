@@ -1,5 +1,4 @@
 //  external dependencies
-import { useOutletContext } from "react-router-dom";
 
 //  relative dependencies
 import { useAllProducts } from "../utils/useAllProducts";
@@ -7,15 +6,6 @@ import Card from "./Card";
 
 function Shop() {
   const { storeData, error, loading } = useAllProducts();
-  const [,setCartItems] = useOutletContext();
-
-  const handleAddToCart = (id, quantity = 1) => {
-    let counter = quantity;
-    while (counter > 0) {
-      setCartItems((cartItems) => [...cartItems, id]);
-      counter -= 1;
-    }
-  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Oops! An error occurred.</p>;
@@ -28,7 +18,7 @@ function Shop() {
       inCart={false}
       key={item.id}
       itemId={item.id}
-      onClick={handleAddToCart}
+      itemQty={1}
     />
   ));
 
