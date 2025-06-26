@@ -30,8 +30,8 @@ function Card({ itemName, itemPrice, itemImage, inCart = false, itemId }) {
   }
 
   function handleRemoveFromCart() {
-    //TODO
-    return;
+    const remainingItems = cartItems.filter(item => item.itemId !== itemId);
+    setCartItems([...remainingItems]);
   }
 
   return (

@@ -2,7 +2,6 @@
 import { useOutletContext, Link } from "react-router-dom";
 //  relative dependencies
 import Card from "./Card";
-import { useSingleProduct } from "../utils/useSingleProduct";
 
 function Cart() {
   const [cartItems,] = useOutletContext();
