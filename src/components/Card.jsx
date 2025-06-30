@@ -32,7 +32,7 @@ function Card({
     }
 
     function updateExistingItem() {
-      existingItem[0].itemQty += localItemQty;
+      Number(existingItem[0].itemQty += localItemQty);
 
       const newState =
         otherItems.length > 0 ? otherItems.concat(existingItem) : existingItem;
@@ -61,7 +61,7 @@ function Card({
           type="number"
           min={1}
           defaultValue={itemQty}
-          onChange={(e) => setLocalItemQty(e.target.value)}
+          onChange={(e) => setLocalItemQty(Number(e.target.value))}
           disabled={inCart ? true : false}
         />
 
