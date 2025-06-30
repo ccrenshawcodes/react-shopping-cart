@@ -11,6 +11,4 @@ export function useSyncLocalStorage(value) {
       localStorage.setItem("cartItemsState", JSON.stringify(value));
     }
   }, [value]);
-
-  return JSON.parse(localStorage.getItem("cartItemsState"));
 }
