@@ -32,7 +32,7 @@ function Card({
     }
 
     function updateExistingItem() {
-      Number(existingItem[0].itemQty += localItemQty);
+      Number((existingItem[0].itemQty += localItemQty));
 
       const newState =
         otherItems.length > 0 ? otherItems.concat(existingItem) : existingItem;
